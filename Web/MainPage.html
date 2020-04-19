@@ -11,13 +11,25 @@
 		</div>
 		
 		<div class = "form">
-			<form action = "" method = "get">
+			<form action = "search.php" method = "post">
 				<label for = "keyword">Keyword: </label>
 				<input type = "text" name = "keyword">
 				<br>
 				<br>
 				<label for = "location">Location: </label>
 				<input type = "text" name = "location">
+				<br>
+				<br>
+				<label for = "degree">Level of Education: </label>
+				<select name = "degree">
+					<option value = "">No filter</option>
+					<option value = "High School">High School</option>
+					<option value = "GED">GED</option>
+					<option value = "Associate">Associate</option>
+					<option value = "Bachelor">Bachelor's</option>
+					<option value = "Master">Master's</option>
+					<option value = "Ph.D">Ph.D</option>
+				</select>
 				<br>
 				<br>
 				<button type = "submit">Search</button>
