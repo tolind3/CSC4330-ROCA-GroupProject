@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel = "stylesheet" href = "MainPage.css">
+		<title>Messages</title>
+	</head>
+	
+	<body>
+		<div class = "title">
+			<h1>Message Manager</h1>
+		</div>
+		
+		<div class = "form">
+			<form action = "listmessages.php" method = "post">
+				<label for = "list_eid">Your Employee ID: </label>
+				<input type = "text" name = "list_eid">
+				<br>
+				<button type = "submit">List Messages</button>
+			</form>
+		</div>
+		<br>
+		<div class = "form">
+			<form action = "sendmessage.php" method = "post">
+				<label for = "eid">Your Employee ID: </label>
+				<input type = "text" name = "eid">
+				<br>
+				<label for = "receiver">Receiver's Employee ID: </label>
+				<input type = "text" name = "receiver">
+				<br>
+				<label for = "message">Message: </label>
+				<input type = "text" name = "message">
+				<br>
+				<button type = "submit">Send Message</button>
+			</form>
+		</div>
+		<br>
+		<div class = "links">
+			<a href = "MainPage.html">Back to Job Search Page</a>
+		</div>
+	</body>
+</html>
