@@ -32,7 +32,8 @@ try {
 FROM employee_applications
 LEFT JOIN employee ON employee_applications.employee_id = employee.employee_id
 LEFT JOIN company ON employee.id_number = company.id_number 
-GROUP BY company.c_name;");
+GROUP BY company.c_name
+ORDER BY COUNT(company.id_number) DESC;");
     $stmt->execute();
 
     // set the resulting array to associative

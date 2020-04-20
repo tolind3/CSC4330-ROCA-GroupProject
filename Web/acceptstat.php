@@ -1,6 +1,6 @@
  <?php
 echo "<table style='border: solid 1px black;'>";
-echo "<tr><th>Employee ID</th><th>First Name</th><th>Last Name</th><th>Company Name</th><th>Status</th></tr>";
+echo "<tr><th>Company Name</th><th>Percentage of Employees Accepted</th></tr>";
 
 class TableRows extends RecursiveIteratorIterator {
     function __construct($it) {
@@ -28,12 +28,13 @@ $dbname = "csc4330project";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT employee.employee_id, employee.name, last_name, company.c_name, statusOfApplication
-FROM employee
-LEFT JOIN employee_applications ON employee.employee_id = employee_applications.employee_id
+    $stmt = $conn->prepare("SELECT company.c_name, COUNT(employee.id_number) * 100 / (SELECT COUNT(*) FROM employee WHERE statusOfApplication = 'Accepted')
+FROM employee_applications
+LEFT JOIN employee ON employee_applications.employee_id = employee.employee_id
 LEFT JOIN company ON employee.id_number = company.id_number
-WHERE statusOfApplication = 'Accepted'
-OR statusOfApplication = 'Pending'");
+WHERE employee.statusOfApplication = 'Accepted'
+GROUP BY company.c_name
+ORDER BY COUNT(employee.id_number) * 100 / (SELECT COUNT(*) FROM employee WHERE statusOfApplication = 'Accepted') DESC;");
     $stmt->execute();
 
     // set the resulting array to associative
