@@ -48,5 +48,5 @@ catch(PDOException $e) {
 $conn = null;
 echo "</table>";
 echo "<br>";
-echo "<a href = 'MainPage.html'>Back to Job Search Page</a>"
+echo "<a href = 'StakeholderPage.html'>Back to Stakeholder Reports</a>"
 ?>
