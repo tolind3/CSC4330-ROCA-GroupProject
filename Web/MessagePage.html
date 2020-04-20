@@ -9,7 +9,7 @@
 		<div class = "title">
 			<h1>Message Manager</h1>
 		</div>
-		
+		<h4>Show Your Messages</h4>
 		<div class = "form">
 			<form action = "listmessages.php" method = "post">
 				<label for = "list_eid">Your Employee ID: </label>
@@ -19,6 +19,7 @@
 			</form>
 		</div>
 		<br>
+		<h4>Send a Message to Another Employee</h4>
 		<div class = "form">
 			<form action = "sendmessage.php" method = "post">
 				<label for = "eid">Your Employee ID: </label>
@@ -31,6 +32,30 @@
 				<input type = "text" name = "message">
 				<br>
 				<button type = "submit">Send Message</button>
+			</form>
+		</div>
+		<br>
+		<h4>Request a Recommendation from Your Supervisor</h4>
+		<div class = "form">
+			<form action = "requestrec.php" method = "post">
+				<label for = "rec_eid">Your Employee ID: </label>
+				<input type = "text" name = "rec_eid">
+				<br>
+				<label for = "super">Supervisor's Employee ID: </label>
+				<input type = "text" name = "super">
+				<br>
+				<button type = "submit">Send Request</button>
+			</form>
+		</div>
+		<br>
+		<h4>View Recommendation Requests</h4>
+		<div class = "form">
+			<form action = "showrecreqs.php" method = "post">
+				<label for = "eid">Your Employee ID: </label>
+				<input type = "text" name = "eid">
+				<br>
+				<br>
+				<button type = "submit">Show Recommendation Requests</button>
 			</form>
 		</div>
 		<br>

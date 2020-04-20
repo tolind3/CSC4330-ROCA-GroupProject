@@ -45,11 +45,11 @@ catch(PDOException $e) {
 }
 $conn = null;
 
-echo "<tr><th>Employee ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone</th><th>Resume</th><th>Status of Application</th></tr>";
+echo "<tr><th>Employee ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone</th><th>Resume</th><th>Status of Application</th><th>Recommendation</th></tr>";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT employee_applications.employee_id, name, last_name, email, phone, resume, statusOfApplication FROM employee, employee_applications WHERE employee.employee_id = employee_applications.employee_id AND resume LIKE '%$keyword%' AND employee_applications.job_id = $jid");
+    $stmt = $conn->prepare("SELECT employee_applications.employee_id, name, last_name, email, phone, resume, statusOfApplication, recommendation FROM employee, employee_applications WHERE employee.employee_id = employee_applications.employee_id AND resume LIKE '%$keyword%' AND employee_applications.job_id = $jid");
     $stmt->execute();
 
     // set the resulting array to associative

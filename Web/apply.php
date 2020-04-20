@@ -16,6 +16,7 @@ $mysqli->query($query);
 $query = "UPDATE employee
 SET statusOfApplication = 'Pending'
 WHERE employee_id = $eid";
+$mysqli->query($query);
 $mysqli->close();
 echo "<br>";
 echo "<h2>Application successfully submitted</h2>";
