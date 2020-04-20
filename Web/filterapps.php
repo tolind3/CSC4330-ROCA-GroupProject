@@ -1,6 +1,6 @@
- <?php
+<?php
 echo "<table style='border: solid 1px black;'>";
-echo "<tr><th>Job ID</th><th>Description</th><th>Company Name</th><th>Location</th><th>Status</th><th>Month</th><th>Day</th><th>Year</th></tr>";
+echo "<tr><th>Applicant ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone</th><th>Resume</th><th>Status of Application</th></tr>";
 
 class TableRows extends RecursiveIteratorIterator {
     function __construct($it) {
@@ -25,14 +25,13 @@ $username = "ProjectAdmin@4330project";
 $password = "Csc4330project";
 $dbname = "csc4330project";
 $mysqli = new mysqli($servername, $username, $password, $dbname);
+$jid = $mysqli->real_escape_string($_POST['jid']);
 $keyword = $mysqli->real_escape_string($_POST['keyword']);
-$location = $mysqli->real_escape_string($_POST['location']);
-$degree = $mysqli->real_escape_string($_POST['degree']);
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT opening_id, job_opening.description, name, location, status, Month, Day, Year FROM job_opening, company WHERE job_opening.company_id = company.id_number AND status LIKE '%open%' AND job_opening.description LIKE '%$keyword%' AND location LIKE '%$location%' AND job_opening.description LIKE '%$degree%' ORDER BY Year DESC, Month DESC, Day DESC");
+    $stmt = $conn->prepare("SELECT application_list.applicant_id, name, last_name, email, phonenumber, resume, statusOfApplication FROM applicants, application_list WHERE applicants.applicants_id = application_list.applicant_id AND resume LIKE '%$keyword%' AND application_list.job_id = $jid");
     $stmt->execute();
 
     // set the resulting array to associative
@@ -47,5 +46,18 @@ catch(PDOException $e) {
 $conn = null;
 echo "</table>";
 echo "<br>";
-echo "<a href = 'MainPage.html'>Back to Job Search Page</a>"
+echo "<form action = 'changestatus.php' method = 'post'>";
+echo "<label for = 'aid'>Applicant ID: </label>";
+echo "<input type = 'text' name = 'aid'>";
+echo "<br>";
+echo "<select name = 'status'>";
+echo "<option value = 'Accepted'>Accepted</option>";
+echo "<option value = 'Pending'>Pending</option>";
+echo "<option value = 'Rejected'>Rejected</option>";
+echo "</select>";
+echo "<br>";
+echo "<button type = 'submit'>Change Status</button>";
+echo "</form>";
+echo "<br>";
+echo "<a href = 'RecruiterPage.html'>Back to Recruiter Tools</a>"
 ?>
