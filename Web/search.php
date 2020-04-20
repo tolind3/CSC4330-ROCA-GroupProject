@@ -32,7 +32,7 @@ $degree = $mysqli->real_escape_string($_POST['degree']);
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT opening_id, job_opening.description, name, location, status, Month, Day, Year FROM job_opening, company WHERE job_opening.company_id = company.id_number AND status LIKE '%open%' AND job_opening.description LIKE '%$keyword%' AND location LIKE '%$location%' AND job_opening.description LIKE '%$degree%' ORDER BY Year DESC, Month DESC, Day DESC");
+    $stmt = $conn->prepare("SELECT opening_id, job_opening.description, c_name, location, status, Month, Day, Year FROM job_opening, company WHERE job_opening.company_id = company.id_number AND status LIKE '%open%' AND job_opening.description LIKE '%$keyword%' AND location LIKE '%$location%' AND job_opening.description LIKE '%$degree%' ORDER BY Year DESC, Month DESC, Day DESC");
     $stmt->execute();
 
     // set the resulting array to associative
@@ -46,6 +46,26 @@ catch(PDOException $e) {
 }
 $conn = null;
 echo "</table>";
+echo "<br>";
+echo "<form action = 'apply.php' method = 'post'>";
+echo "<label for = 'jid'>Job ID: </label>";
+echo "<input type = 'text' name = 'jid'>";
+echo "<br>";
+echo "<label for = 'eid'>Employee ID: </label>";
+echo "<input type = 'text' name = 'eid'>";
+echo "<br>";
+echo "<button type = 'submit'>Submit Resume</button>";
+echo "</form>";
+echo "<br>";
+echo "<form action = 'applapply.php' method = 'post'>";
+echo "<label for = 'jid'>Job ID: </label>";
+echo "<input type = 'text' name = 'jid'>";
+echo "<br>";
+echo "<label for = 'aid'>Applicant ID: </label>";
+echo "<input type = 'text' name = 'aid'>";
+echo "<br>";
+echo "<button type = 'submit'>Submit Resume</button>";
+echo "</form>";
 echo "<br>";
 echo "<a href = 'MainPage.html'>Back to Job Search Page</a>"
 ?>

@@ -24,5 +24,5 @@ $mysqli->close();
 echo "<br>";
 echo "<h2>Status successfully updated</h2>";
 echo "<br>";
-echo "<a href = 'RecruiterPage.html'>Back to Job Search Page</a>"
+echo "<a href = 'MainPage.html'>Back to Job Search Page</a>"
 ?>

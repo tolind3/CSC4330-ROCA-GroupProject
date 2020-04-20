@@ -44,11 +44,42 @@ catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
 $conn = null;
+
+echo "<tr><th>Employee ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone</th><th>Resume</th><th>Status of Application</th></tr>";
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $conn->prepare("SELECT employee_applications.employee_id, name, last_name, email, phone, resume, statusOfApplication FROM employee, employee_applications WHERE employee.employee_id = employee_applications.employee_id AND resume LIKE '%$keyword%' AND employee_applications.job_id = $jid");
+    $stmt->execute();
+
+    // set the resulting array to associative
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
+        echo $v;
+    }
+}
+catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+$conn = null;
 echo "</table>";
 echo "<br>";
 echo "<form action = 'changestatus.php' method = 'post'>";
 echo "<label for = 'aid'>Applicant ID: </label>";
 echo "<input type = 'text' name = 'aid'>";
+echo "<br>";
+echo "<select name = 'status'>";
+echo "<option value = 'Accepted'>Accepted</option>";
+echo "<option value = 'Pending'>Pending</option>";
+echo "<option value = 'Rejected'>Rejected</option>";
+echo "</select>";
+echo "<br>";
+echo "<button type = 'submit'>Change Status</button>";
+echo "</form>";
+echo "<br>";
+echo "<form action = 'changeempstatus.php' method = 'post'>";
+echo "<label for = 'eid'>Employee ID: </label>";
+echo "<input type = 'text' name = 'eid'>";
 echo "<br>";
 echo "<select name = 'status'>";
 echo "<option value = 'Accepted'>Accepted</option>";
