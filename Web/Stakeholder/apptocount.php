@@ -2,6 +2,7 @@
 echo "<table style='border: solid 1px black;'>";
 echo "<tr><th>Company Name</th><th>Number of Applicants</th></tr>";
 
+// Class to create html table rows
 class TableRows extends RecursiveIteratorIterator {
     function __construct($it) {
         parent::__construct($it, self::LEAVES_ONLY);
@@ -25,10 +26,13 @@ $username = "ProjectAdmin@4330project";
 $password = "Csc4330project";
 $dbname = "csc4330project";
 
+// PDO connection to database
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT company.c_name, COUNT(employee_applications.employee_id)
+    
+	// mysql query
+	$stmt = $conn->prepare("SELECT company.c_name, COUNT(employee_applications.employee_id)
 FROM employee_applications
 LEFT JOIN job_opening ON employee_applications.job_id = job_opening.opening_id
 LEFT JOIN company ON job_opening.company_id = company.id_number 
@@ -36,7 +40,7 @@ GROUP BY company.c_name
 ORDER BY COUNT(employee_applications.employee_id) DESC;");
     $stmt->execute();
 
-    // set the resulting array to associative
+    // Display results
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
         echo $v;
@@ -45,8 +49,10 @@ ORDER BY COUNT(employee_applications.employee_id) DESC;");
 catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
+
+// Close connection
 $conn = null;
 echo "</table>";
 echo "<br>";
-echo "<a href = 'StakeholderPage.html'>Back to Stakeholder Reports</a>"
+echo "<a href = 'http://192.168.64.2/Web/MainPage/MainPage.html'>Back to Main Page</a>"
 ?>
