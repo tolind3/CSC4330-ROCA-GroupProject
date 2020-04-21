@@ -27,7 +27,7 @@ VALUES ('".$_POST["firstname"]."','".$_POST["lastname"]."','NULL','NULL','".$_PO
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
-    header("Location: http://192.168.64.2/Web/MainPage.html");
+    header("Location: http://192.168.64.2/Web/MainPage/MainPage.html");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

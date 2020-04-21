@@ -3,9 +3,47 @@
 	<head>
 		<link rel = "stylesheet" href = "MainPage.css">
 		<title>Employee Profile Update</title>
+		<style type="text/css">
+			.register{
+		background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+		margin-top: 3%;
+		padding: 3%;
+		text-align: center;
+	}
+		ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+		</style>
 	</head>
 	
 	<body>
+		<ul>
+			<li><a href="http://192.168.64.2/Web/MainPage/MainPage.html">Job Search</a></li>
+			<li><a href="http://192.168.64.2/Web/Employee/MessagePage.html">Message Page</a></li>
+			<li style="float:right"><a class="active" href="http://192.168.64.2/Web/SplashPage.html">Logout</a></li>
+		  </ul>
+	<div class="container register">
 		<div class = "title">
 			<h1>Enter Your Profile Information: </h1>
 		</div>
@@ -43,5 +81,6 @@
 		<div class = "links">
 			<a href = "MainPage.html">Back to Job Search Page</a>
 		</div>
+	</div>
 	</body>
 </html>

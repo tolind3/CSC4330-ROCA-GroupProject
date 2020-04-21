@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel = "stylesheet" href = "MainPage.css">
+		<title>Job Search Platform</title>
+	</head>
+	
+	<body>
+		<div class = "title">
+			<h1>ROCA.sa Job Search Platform</h1>
+		</div>
+		
+		<div class = "form">
+			<form action = "search.php" method = "post">
+				<label for = "keyword">Keyword: </label>
+				<input type = "text" name = "keyword">
+				<br>
+				<br>
+				<label for = "location">Location: </label>
+				<input type = "text" name = "location">
+				<br>
+				<br>
+				<label for = "degree">Level of Education: </label>
+				<select name = "degree">
+					<option value = "">No filter</option>
+					<option value = "High School">High School</option>
+					<option value = "GED">GED</option>
+					<option value = "Associate">Associate</option>
+					<option value = "Bachelor">Bachelor's</option>
+					<option value = "Master">Master's</option>
+					<option value = "Ph.D">Ph.D</option>
+				</select>
+				<br>
+				<br>
+				<button type = "submit">Search</button>
+			</form>
+		</div>
+		<br>
+		<div class = "links">
+			<a href = "LoginPage.html">ROCA.sa Employee? Login Here</a>
+			<br>
+			<a href = "AppProfilePage.html">Update Applicant Profile Page Here</a>
+			<br>
+			<a href = "EmpProfilePage.html">Update Employee Profile Page Here</a>
+			<br>
+			<a href = "MessagePage.html">Manage Messages Here</a>
+			<br>
+			<a href = "RecruiterPage.html">Recruiter? Click Here</a>
+			<br>
+			<a href = "StakeholderPage.html">Stakeholder? Click Here</a>
+			<br>
+			<a href = "ResumeUpload.html">Upload Your Resume Here</a>
+		</div>
+	</body>
+</html>
