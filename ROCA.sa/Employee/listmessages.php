@@ -1,7 +1,7 @@
  <?php
  session_start();
  
-echo "<table style='border: solid 1px black;'>";
+echo "<table style='width: 50%; border: solid 1px black;'>";
 echo "<tr><th>From</th><th>Message</th></tr>";
 
 class TableRows extends RecursiveIteratorIterator {
@@ -10,7 +10,7 @@ class TableRows extends RecursiveIteratorIterator {
     }
 
     function current() {
-        return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
+        return "<td style='padding: 30px; width:150px;border:1px solid black;'>" . parent::current(). "</td>";
     }
 
     function beginChildren() {

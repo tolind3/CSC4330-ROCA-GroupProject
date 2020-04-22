@@ -159,13 +159,17 @@ session_start();
 	<body>
 		<ul>
 			<li><a href="../MainPage/MainPage.php">Job Search</a></li>
-			<li><a href="../Employee/EmpProfilePage.php">Employee Profile Page</a></li>
+			<li><a href="../Employee/EmpProfilePage.php">Profile Page</a></li>
 			<li><a href="../Applicant/ResumeUpload.php">Update/Submit Resume</a></li>
-			<li><a href="../Employee/MessagePage.php">Manage Messages/Recommendations</a></li>
 			<?php
-				if ($_SESSION['role'] == "rec")
+				if ($_SESSION['role'] == "emp")
 				{
-					echo "<li><a href='../Recruiter/RecruiterPage.html'>Recruiter Tools Page</a></li>";
+					echo "<li><a href='../Employee/MessagePage.php'>Manage Messages/Recommendations</a></li>";
+				}
+				else if ($_SESSION['role'] == "rec")
+				{
+					echo "<li><a href='../Employee/MessagePage.php'>Manage Messages/Recommendations</a></li>";
+					echo "<li><a href='../Recruiter/RecruiterPage.php'>Recruiter Tools Page</a></li>";
 				}
 			?>
 			<li style="float:right"><a class="active" href="../logout.php">Logout</a></li>

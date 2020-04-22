@@ -24,5 +24,5 @@ $mysqli->close();
 echo "<br>";
 echo "<h2>Job posting successfully created</h2>";
 echo "<br>";
-echo "<a href = 'RecruiterPage.html'>Back to Recruiter Tools</a>"
+echo "<a href = 'RecruiterPage.php'>Back to Recruiter Tools</a>"
 ?>

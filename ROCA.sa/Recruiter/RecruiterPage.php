@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -166,7 +170,7 @@
 				else if ($_SESSION['role'] == "rec")
 				{
 					echo "<li><a href='../Employee/MessagePage.php'>Manage Messages/Recommendations</a></li>";
-					echo "<li><a href='../Recruiter/RecruiterPage.html'>Recruiter Tools Page</a></li>";
+					echo "<li><a href='../Recruiter/RecruiterPage.php'>Recruiter Tools Page</a></li>";
 				}
 			?>
 			<li style="float:right"><a class="active" href="../logout.php">Logout</a></li>
@@ -185,7 +189,7 @@
 				<br>
 				<br>
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Resume Key Word" name="keyword" required="">
+					<input type="text" class="form-control" placeholder="Resume Key Word" name="keyword">
 				  </div>
 				<br>
 				<br>

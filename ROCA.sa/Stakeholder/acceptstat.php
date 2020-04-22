@@ -1,5 +1,5 @@
  <?php
-echo "<table style='border: solid 1px black;'>";
+echo "<table style='width: 40%; border: solid 1px black;'>";
 echo "<tr><th>Company Name</th><th>Percentage of Employees Accepted</th></tr>";
 
 class TableRows extends RecursiveIteratorIterator {
@@ -8,7 +8,7 @@ class TableRows extends RecursiveIteratorIterator {
     }
 
     function current() {
-        return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
+        return "<td style='text-align: center; width:150px;border:1px solid black;'>" . parent::current(). "</td>";
     }
 
     function beginChildren() {

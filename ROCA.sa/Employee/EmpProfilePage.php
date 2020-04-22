@@ -170,10 +170,10 @@ session_start();
 				else if ($_SESSION['role'] == "rec")
 				{
 					echo "<li><a href='../Employee/MessagePage.php'>Manage Messages/Recommendations</a></li>";
-					echo "<li><a href='../Recruiter/RecruiterPage.html'>Recruiter Tools Page</a></li>";
+					echo "<li><a href='../Recruiter/RecruiterPage.php'>Recruiter Tools Page</a></li>";
 				}
 			?>
-			<li style="float:right"><a class="active" href="http://192.168.64.2/Web/SplashPage.html">Logout</a></li>
+			<li style="float:right"><a class="active" href="../logout.php">Logout</a></li>
 		  </ul>
  <form action = "empprofile.php" method = "post">
 		  <div id="logreg-forms">

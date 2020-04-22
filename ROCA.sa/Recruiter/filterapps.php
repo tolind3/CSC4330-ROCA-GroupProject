@@ -8,7 +8,7 @@ class TableRows extends RecursiveIteratorIterator {
     }
 
     function current() {
-        return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
+        return "<td style='padding: 10px; width:150px;border:1px solid black;'>" . parent::current(). "</td>";
     }
 
     function beginChildren() {
@@ -90,5 +90,5 @@ echo "<br>";
 echo "<button type = 'submit'>Change Status</button>";
 echo "</form>";
 echo "<br>";
-echo "<a href = 'RecruiterPage.html'>Back to Recruiter Tools</a>"
+echo "<a href = 'RecruiterPage.php'>Back to Recruiter Tools</a>"
 ?>
